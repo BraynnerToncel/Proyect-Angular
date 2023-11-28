@@ -5,12 +5,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BasicosComponent } from './ejemplos/basicos/basicos.component';
+import { FormateaFechaPipe } from './utilidades/formatea-fecha.pipe';
+import { FormateaNumerosPipe } from './utilidades/formatea-numeros.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BasicosComponent, 
+    BasicosComponent,
+    FormateaFechaPipe,
+    FormateaNumerosPipe, 
     
   ],
   imports: [
