@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { BasicosComponent } from './ejemplos/basicos/basicos.component';
 import { FormateaFechaPipe } from './utilidades/formatea-fecha.pipe';
 import { FormateaNumerosPipe } from './utilidades/formatea-numeros.pipe';
+import { DataBindingComponent } from './ejemplos/data-binding/data-binding.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FormateaNumerosPipe } from './utilidades/formatea-numeros.pipe';
     AppComponent,
     BasicosComponent,
     FormateaFechaPipe,
-    FormateaNumerosPipe, 
+    FormateaNumerosPipe,
+    DataBindingComponent, 
     
   ],
   imports: [

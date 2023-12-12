@@ -1,0 +1,22 @@
+<p>data binding works!</p>
+<p>Ejemplo botón
+    <br>
+    <br>
+    <button [disabled]="disable" (click)="cambiar()">Presionar</button>
+</p>
+
+    
+    <hr>
+    <div [style]="'background-color:'+color+';'">Hola</div>
+    <hr>
+    <p>
+        {{texto}}
+    </p>
+    <hr>
+    <p [innerHTML]="texto">
+        
+    </p>
+    <hr>
+    <div>
+        <img [src] = "'/assets/image/'+img"  [width]="ancho"   [height]="alto">    
+    </div>
