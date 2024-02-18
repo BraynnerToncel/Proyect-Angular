@@ -1,0 +1,88 @@
+<div class="container">
+<form [formGroup]= "formulario" #formDir =  "ngForm">
+    <h3>Formulario reactivo</h3>
+    <div [hidden]= "formDir.submitted">
+        <div class = "cross-validation" [class.cross-validation-error] 
+    = "formulario.invalid && (formulario.touched || formulario.dirty)" >
+    
+        <div class ="form-group">
+        <label for="nombre"> Nombre: </label>
+         <input type="text" class="form-control" formControlName= "nombre" 
+         required>    
+         <div *ngIf= "nombre.invalid && (nombre.dirty || nombre.touched)" 
+         class = "alert alert-danger">
+                <div *ngIf= "nombre.errors?.['required']">
+                    El campo nombre es obligatorio
+                </div>
+                <div *ngIf= "nombre.errors?.['minlength']">
+                    El nombre debe tener al menos 4 caracteres.
+                </div>
+         </div>     
+   </div>
+
+   <div class ="form-group">
+        <label for="correo"> Correo: </label>
+        <input type="text" class="form-control" formControlName= "correo"
+        required>   
+        <div *ngIf= "correo.invalid && (correo.dirty || correo.touched)" 
+         class = "alert alert-danger">
+                <div *ngIf= "correo.errors?.['required']">
+                    El campo E-mail es obligatorio
+                </div>
+                <div *ngIf= "nombre.errors?.['minlength']">
+                    El E-mail debe tener al menos 4 caracteres.
+                </div>
+                <div *ngIf= "correo.errors?.['pattern']">
+                    El E-mail debe tener un formato valido
+                </div>
+         </div>       
+    </div>
+
+    <div class ="form-group">
+        <label for="telefono"> Telefono </label>
+        <input type="text" class="form-control" formControlName= "telefono" 
+        required> 
+        <div *ngIf= "telefono.invalid && (telefono.dirty || telefono.touched)" 
+         class = "alert alert-danger">
+                <div *ngIf= "telefono.errors?.['required']">
+                    El campo telefono es obligatorio
+                </div>
+                <div *ngIf= "telefono.errors?.['minlength']">
+                    El telefono debe tener al menos 4 caracteres.
+                </div>
+         </div>   
+                
+    </div>
+
+    <div class ="form-group">
+        <label for="dirección"> Dirección: </label>
+        <input type="text" class="form-control" formControlName= "direccion" 
+        required> 
+        <div *ngIf= "direccion.invalid && (direccion.dirty || direccion.touched)" 
+         class = "alert alert-danger">
+                <div *ngIf= "direccion.errors?.['required']">
+                    El campo direccion es obligatorio
+                </div>
+                <div *ngIf= "direccion.errors?.['minlength']">
+                    El direccion debe tener al menos 4 caracteres.
+                </div>
+         </div>   
+                
+    </div>
+
+    <div class ="form-group">
+        <label for="pais"> País: </label>
+        <select class="form-control"  formControlName= "pais">
+            <option *ngFor= "let pais of paises" value= "{{pais.nombre}}">
+                {{pais.nombre}}
+            </option>
+        </select>         
+    </div>
+</div>
+    </div>
+
+    <hr>
+    <button type="submit" class="btn btn-primary" [disabled]= "formulario.invalid" (click)= "enviar()" >Enviar</button>
+
+</form>
+</div>

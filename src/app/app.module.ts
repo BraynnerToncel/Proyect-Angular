@@ -15,6 +15,12 @@ import { HomeComponent } from './paginas/home/home.component';
 import { Ruta2Component } from './paginas/ruta2/ruta2.component';
 import { FormulariosComponent } from './paginas/formularios/formularios.component';
 import { MaterialComponent } from './paginas/material/material.component';
+import { ErrorComponent } from './paginas/error/error.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CabeceroComponent } from './componentes/cabecero/cabecero.component';
+import { FooterComponent } from './componentes/footer/footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Formularios2Component } from './paginas/formularios2/formularios2.component';
 
 
 @NgModule({
@@ -30,12 +36,19 @@ import { MaterialComponent } from './paginas/material/material.component';
     HomeComponent,
     Ruta2Component,
     FormulariosComponent,
-    MaterialComponent, 
+    MaterialComponent,
+    ErrorComponent,
+    CabeceroComponent,
+    FooterComponent,
+    Formularios2Component, 
     
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,81 @@
-<p>formularios works!</p>
+
+
+<div class="container">
+
+   <div class="row">
+<H3>Formulario basico con ngModel</H3>
+
+        <form name="form" id="form" (submit)="enviar()"  #formulario="ngForm" >
+             <div class ="form-group">
+                 <label for="nombre"> Nombre: </label>
+                  <input type="text" name="nombre" class="form-control"  [(ngModel)] = "usuario.nombre" 
+                  #nombre = "ngModel" required="true">
+                  <div *ngIf = "nombre.invalid && (nombre.dirty || nombre.touched)"
+                  class="alert alert-danger">
+                    <div *ngIf = "nombre.errors">
+                        El campo nombre es obligatorio
+                    </div>
+                  </div>
+            </div>
+            <div class ="form-group">
+                <label for="correo"> E-mail: </label>
+                 <input type="text" name="correo" class="form-control" [(ngModel)] = "usuario.correo" 
+                 #nombre = "ngModel">
+           </div>
+           <div class ="form-group">
+                <label for="telefono"> Telefeno: </label>
+                <input type="text" name="telefono" class="form-control" [(ngModel)] = "usuario.telefono"
+                 #nombre = "ngModel">
+            </div>
+            <div class ="form-group">
+                <label for="direccion"> Dirección: </label>
+                <input type="text" name="direccion" class="form-control" [(ngModel)] = "usuario.direccion"
+                 #nombre = "ngModel">
+            </div>
+            <div class ="form-group">
+                <label for="pais"> País: </label>
+                <select name="pais" class="form-control" [(ngModel)]= "usuario.pais" >
+                    <option *ngFor= "let pais of paises" value= "{{pais.nombre}}">
+                        {{pais.nombre}}
+                    </option>
+                </select>     
+            </div>
+            <br>
+           
+            <hr>
+            <input type="submit" value="Enviar" class="btn btn-success"
+            [disabled]= "!formulario.form.valid">
+            <hr>
+        </form>
+        
+        <div class ="form-group">
+            <label for="telefono"> Acepte terminos y condiciones </label>
+            <input type="checkbox" (change)= "seleccionaCheck($event)" [(ngModel)] = "checkboxMarca">
+        </div>
+        
+        <h4>Usuarios registrados ({{users.length}}) </h4>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>E-mail</th>
+                    <th>Teléfono</th>
+                    <th>Dirección</th>
+                    <th>País</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{user.nombre}}</td>
+                    <td>{{user.correo}}</td>
+                    <td>{{user.telefono}}</td>
+                    <td>{{user.direccion}}</td>
+                    <td>{{user.pais}}</td>
+
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
